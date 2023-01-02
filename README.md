@@ -1,37 +1,5 @@
-# [Physics Informed Neural Networks](https://maziarraissi.github.io/PINNs/)
+# [Dynamic Loss Balanced Physics-Informed Neural Networks](https://github.com/Xiaojiuwo168/DLBPINNs/)
 
-We introduce physics informed neural networks – neural networks that are trained to solve supervised learning tasks while respecting any given law of physics described by general nonlinear partial differential equations. We present our developments in the context of solving two main classes of problems: data-driven solution and data-driven discovery of partial differential equations. Depending on the nature and arrangement of the available data, we devise two distinct classes of algorithms, namely continuous time and discrete time models. The resulting neural networks form a new class of data-efficient universal function approximators that naturally encode any underlying physical laws as prior information. In the first part, we demonstrate how these networks can be used to infer solutions to partial differential equations, and obtain physics-informed surrogate models that are fully differentiable with respect to all input coordinates and free parameters. In the second part, we focus on the problem of data-driven discovery of partial differential equations.
+近年来，物理信息神经网络 (Physics-Informed Neural Networks, PINNs) 在求解非线性偏微分方程 (Partial Differential Equations, PDEs) 中得到了大量应用. PINNs将物理信息作为一种正则化约束加入神经网络损失函数中，可以减少传统神经网络方法对数据的大量依赖. 然而，这种做法使得PINNs在训练中无法根据数据变化而动态调整损失函数中各个残差权重，导致PINNs在求解非线性PDEs中存在求解误差较大的局限. 为了解决该问题，本文提出了一种动态损失平衡的物理信息神经网络 (Dynamic Loss Balanced Physics-Informed Neural Networks, DLBPINNs) . 首先，DLBPINNs通过分别为PINNs损失函数的各个损失项设计了一种动态权重系数以解决不同损失项梯度下降速度的不平衡. 其次，DLBPINNs在动态权重系数的基础上为PNNNs损失函数的各个损失项之间建立了一种的损失平衡求和以降低误差. 本文选择了科学机器学习领域中四个经典的非线性PDEs对DLBPINNs进行数值验证和分析. 实验结果表明，DLBPINNs比PINNs在Schrodinger和Allen-Cahn方程上误差分别降低了46%、64%. DLBPINNs在求解Navier-Stokes方程时将系数 λ_1 的误差降低了1至2个数量级和系数 λ_2 的误差降低了约50%. DLBPINNs在KdV方程中能够在多项系数中将误差降低1个数量级. 最后，本文在多种形式的Burgers方程上进行大量消融实验以验证了DLBPINNs能够带来性能的提升、具有处理数据量小的能力以及能够拟合不同时间状态下的方程. DLBPINNs可以取代PINNs被应用于各种非线性PDEs的高精度求解，源代码见于https://github.com/Xiaojiuwo168/DLBPINNs/.
 
-For more information, please refer to the following: (https://maziarraissi.github.io/PINNs/)
-
-  - Raissi, Maziar, Paris Perdikaris, and George E. Karniadakis. "[Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations](https://www.sciencedirect.com/science/article/pii/S0021999118307125)." Journal of Computational Physics 378 (2019): 686-707.
-
-  - Raissi, Maziar, Paris Perdikaris, and George Em Karniadakis. "[Physics Informed Deep Learning (Part I): Data-driven Solutions of Nonlinear Partial Differential Equations](https://arxiv.org/abs/1711.10561)." arXiv preprint arXiv:1711.10561 (2017).
-
-  - Raissi, Maziar, Paris Perdikaris, and George Em Karniadakis. "[Physics Informed Deep Learning (Part II): Data-driven Discovery of Nonlinear Partial Differential Equations](https://arxiv.org/abs/1711.10566)." arXiv preprint arXiv:1711.10566 (2017).
-
-## Citation
-
-    @article{raissi2019physics,
-      title={Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations},
-      author={Raissi, Maziar and Perdikaris, Paris and Karniadakis, George E},
-      journal={Journal of Computational Physics},
-      volume={378},
-      pages={686--707},
-      year={2019},
-      publisher={Elsevier}
-    }
-
-    @article{raissi2017physicsI,
-      title={Physics Informed Deep Learning (Part I): Data-driven Solutions of Nonlinear Partial Differential Equations},
-      author={Raissi, Maziar and Perdikaris, Paris and Karniadakis, George Em},
-      journal={arXiv preprint arXiv:1711.10561},
-      year={2017}
-    }
-
-    @article{raissi2017physicsII,
-      title={Physics Informed Deep Learning (Part II): Data-driven Discovery of Nonlinear Partial Differential Equations},
-      author={Raissi, Maziar and Perdikaris, Paris and Karniadakis, George Em},
-      journal={arXiv preprint arXiv:1711.10566},
-      year={2017}
-    }
+For more information, please refer to the following: (https://github.com/Xiaojiuwo168/DLBPINNs/).
